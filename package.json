@@ -4,5 +4,13 @@
   "description": "choo-resume + hot-rld = hot app reload in choo",
   "main": "index.js",
   "author": "Ben Gourley",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bengourley/choo-resume.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bengourley/choo-resume/issues"
+  },
+  "homepage": "https://github.com/bengourley/choo-resume#readme"
 }
