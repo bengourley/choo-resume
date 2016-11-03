@@ -8,5 +8,4 @@ module.exports = (globalName = defaultGlobalName) => ({
     if (!window[globalName]) return obj
     return window[globalName]
   }
-}
-)
+})
