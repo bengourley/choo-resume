@@ -1,6 +1,6 @@
 # choo-resume
 
-choo-resume + [hot-rld](bengourley/hot-rld) = hot app reload in choo 🔥
+choo-resume + [hot-rld](https://github.com/bengourley/hot-rld) = hot app reload in choo 🔥
 
 ## Usage
 
