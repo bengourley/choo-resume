@@ -1,7 +1,7 @@
 const defaultGlobalName = '__SAVED_APP_STATE__'
 
 module.exports = (globalName = defaultGlobalName) => ({
-  onStateChange: (data, state, prev, caller, createSend) => {
+  onStateChange: (state, data, prev, caller, createSend) => {
     window[globalName] = state
   },
   wrapInitialState: (obj) => {
