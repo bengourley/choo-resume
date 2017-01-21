@@ -13,7 +13,7 @@ For choo v3 use v1.x, for choo v4 use v2.x.
 
 ```js
 const resume = require('choo-resume')
-app.use(resume())
+app.use(resume(app))
 
 // Basic usage
 const appRoot = document.getElementById('app-root')

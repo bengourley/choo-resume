@@ -1,15 +1,18 @@
-const defaultGlobalName = '__SAVED_APP_STATE__'
+const windowProp = '__CHOO_RESUME__'
 
-module.exports = (app, globalName = defaultGlobalName) => {
-  if (window[`${globalName}__prev__`]) window[`${globalName}__prev__`].stop()
-  window[`${globalName}__prev__`] = app
+module.exports = app => {
+  if (window[windowProp]) {
+    // Stop the last runnning app if one exists and swap it with the new one
+    if (window[windowProp].app) window[windowProp].app.stop()
+    window[windowProp].app = app
+  } else {
+    // Save the current app on the window
+    window[windowProp] = { app: app, state: null }
+  }
   return {
     onStateChange: (state, data, prev, caller, createSend) => {
-      window[globalName] = state
+      window[windowProp].state = state
     },
-    wrapInitialState: (obj) => {
-      if (!window[globalName]) return obj
-      return window[globalName]
-    }
+    wrapInitialState: (obj) => window[windowProp].state || obj
   }
 }

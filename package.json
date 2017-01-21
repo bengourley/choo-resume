@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "Ben Gourley",
   "license": "MIT",
+  "scripts": {
+    "test": "standard && node test.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bengourley/choo-resume.git"
@@ -12,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/bengourley/choo-resume/issues"
   },
-  "homepage": "https://github.com/bengourley/choo-resume#readme"
+  "homepage": "https://github.com/bengourley/choo-resume#readme",
+  "devDependencies": {
+    "standard": "^8.6.0",
+    "tape": "^4.6.3"
+  }
 }
