@@ -1,6 +1,6 @@
 {
   "name": "choo-resume",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "choo-resume + hot-rld = hot app reload in choo",
   "main": "index.js",
   "author": "Ben Gourley",

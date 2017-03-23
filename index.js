@@ -1,9 +1,16 @@
-const defaultGlobalName = '__SAVED_APP_STATE__'
+const defaultGlobalName = '__SAVED_APP_STATE__';
 
-module.exports = (globalName = defaultGlobalName) => (state, emitter) => {
-  Object.assign(state,window[globalName] || {});
+module.exports = (app, sa = defaultGlobalName) => {
+  window[sa] = window[sa] || {};
 
-	emitter.on('*', function (messageName, data) {
-    window[globalName] = state;
+  app.use((state, emitter) => {
+    window[sa].emitter && window[sa].emitter.removeAllListeners();
+    window[sa].emitter = emitter;
+    Object.assign(state, window[sa].state || {});
+    emitter.on('*', function (messageName, data) {
+      window[sa].state = state;
+    })
   })
+
+  return app;
 }

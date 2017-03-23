@@ -18,9 +18,7 @@ const resume = require('choo-resume')
 const appRoot = document.getElementById('app-root')
 if (appRoot) appRoot.parentNode.removeChild(appRoot)
 
-// Resume the state right before start in order to override the "initial" state
-app.use(resume());
-const tree = app.start()
+const tree = resume(app).start()
 document.body.appendChild(tree)
 
 // Rehydration usage
