@@ -2,7 +2,7 @@
 
 choo-resume + [hot-rld](https://github.com/bengourley/hot-rld) = hot app reload in choo 🔥
 
-For choo v3 use v1.x, for choo v4 use v2.x.
+You need choo v4.1+ for this module to properly work.
 
 ## Usage
 
