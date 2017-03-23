@@ -2,7 +2,7 @@
 
 choo-resume + [hot-rld](https://github.com/bengourley/hot-rld) = hot app reload in choo 🔥
 
-For choo v3 use v1.x, for choo v4 use v2.x, for choo v5 use v3.x.
+For choo v3 use v1.x, for choo v4 use v2.x, v3.x, for choo v5 use v4.x.
 
 ## Usage
 
