@@ -2,7 +2,7 @@
 
 choo-resume + [hot-rld](https://github.com/bengourley/hot-rld) = hot app reload in choo 🔥
 
-For choo v3 use v1.x, for choo v4 use v2.x.
+For choo v3 use v1.x, for choo v4 use v2.x, for choo v5 use v3.x.
 
 ## Usage
 
@@ -13,11 +13,13 @@ For choo v3 use v1.x, for choo v4 use v2.x.
 
 ```js
 const resume = require('choo-resume')
-app.use(resume())
 
 // Basic usage
 const appRoot = document.getElementById('app-root')
 if (appRoot) appRoot.parentNode.removeChild(appRoot)
+
+// Resume the state right before start in order to override the "initial" state
+app.use(resume());
 const tree = app.start()
 document.body.appendChild(tree)
 
@@ -26,12 +28,11 @@ document.body.appendChild(tree)
 // Ensure your root element has a data attribute like
 // the following when rendered from the server:
 //   <div data-server-rendered></div>
-const mount = require('choo/mount')
 const appRoot = document.getElementById('app-root')
 const rehydrating = !!appRoot.dataset.serverRendered
 const tree = app.start()
 if (rehydrating) {
-  mount('#app-root', tree)
+  app.mount('#app-root');
 } else {
   appRoot.parentNode.removeChild(appRoot)
   document.body.appendChild(tree)

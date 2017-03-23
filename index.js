@@ -1,11 +1,9 @@
 const defaultGlobalName = '__SAVED_APP_STATE__'
 
-module.exports = (globalName = defaultGlobalName) => ({
-  onStateChange: (state, data, prev, caller, createSend) => {
-    window[globalName] = state
-  },
-  wrapInitialState: (obj) => {
-    if (!window[globalName]) return obj
-    return window[globalName]
-  }
-})
+module.exports = (globalName = defaultGlobalName) => (state, emitter) => {
+  Object.assign(state,window[globalName] || {});
+
+	emitter.on('*', function (messageName, data) {
+    window[globalName] = state;
+  })
+}
