@@ -28,12 +28,11 @@ document.body.appendChild(tree)
 // Ensure your root element has a data attribute like
 // the following when rendered from the server:
 //   <div data-server-rendered></div>
-const mount = require('choo/mount')
 const appRoot = document.getElementById('app-root')
 const rehydrating = !!appRoot.dataset.serverRendered
 const tree = app.start()
 if (rehydrating) {
-  mount('#app-root', tree)
+  app.mount('#app-root');
 } else {
   appRoot.parentNode.removeChild(appRoot)
   document.body.appendChild(tree)
